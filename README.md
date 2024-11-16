@@ -15,18 +15,18 @@ The above figure depicts the overview of the Causal-guided Active Learning frame
 ```
 ANLP-End-to-End-RAG-System/
 ├── code/
-|   ├── biasdetect/
-|   ├── data/
-|   ├── config.py
-|   ├── download.py
-|   ├── few_shot_examples.py
-|   ├── inference.py
-|   ├── main.py
-|   └── requirements.txt
+│   ├── biasdetect/
+│   ├── data/
+│   ├── config.py
+│   ├── download.py
+│   ├── few_shot_examples.py
+│   ├── inference.py
+│   ├── main.py
+│   └── requirements.txt
 ├── README.md
 ├── report.pdf
 ├── contributions.md
-├── CAL-rep.png
+└──  CAL-rep.png
 ```
 
 ## Setup
