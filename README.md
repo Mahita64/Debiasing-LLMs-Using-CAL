@@ -14,16 +14,19 @@ The above figure depicts the overview of the Causal-guided Active Learning frame
 ## Github Structure
 ```
 ANLP-End-to-End-RAG-System/
-├── biasdetect/
-├── data/
-├── config.py
-├── download.py
-├── few_shot_examples.py
-├── inference.py
-├── main.py
-├── CAL-rep.png
+├── code/
+|   ├── biasdetect/
+|   ├── data/
+|   ├── config.py
+|   ├── download.py
+|   ├── few_shot_examples.py
+|   ├── inference.py
+|   ├── main.py
+|   └── requirements.txt
 ├── README.md
-└── requirements.txt
+├── report.pdf
+├── contributions.md
+├── CAL-rep.png
 ```
 
 ## Setup
