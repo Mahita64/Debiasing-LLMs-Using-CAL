@@ -6,7 +6,7 @@ Reproduction of the paper "Causal-Guided Active Learning for Debiasing Large Lan
 https://aclanthology.org/2024.acl-long.778.pdf
 
 <p align="center">
-  <img width="800" height="350" src="method.png">
+  <img width="800" height="350" src="CAL-rep.png">
 </p>
 
 The above figure depicts the overview of the Causal-guided Active Learning framework.
@@ -21,7 +21,7 @@ ANLP-End-to-End-RAG-System/
 ├── few_shot_examples.py
 ├── inference.py
 ├── main.py
-├── method.png
+├── CAL-rep.png
 ├── README.md
 └── requirements.txt
 ```
