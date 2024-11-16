@@ -24,6 +24,7 @@ ANLP-End-to-End-RAG-System/
 │   ├── main.py
 │   └── requirements.txt
 ├── README.md
+├── github.txt
 ├── report.pdf
 ├── contributions.md
 └── CAL-rep.png
