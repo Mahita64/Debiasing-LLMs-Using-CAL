@@ -26,7 +26,7 @@ ANLP-End-to-End-RAG-System/
 ├── README.md
 ├── report.pdf
 ├── contributions.md
-└──  CAL-rep.png
+└── CAL-rep.png
 ```
 
 ## Setup
