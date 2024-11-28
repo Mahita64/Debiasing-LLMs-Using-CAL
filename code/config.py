@@ -39,6 +39,28 @@ mt_bench_prompt=["Please act as an impartial judge and evaluate the quality of t
     "provide a short explanation. After providing your explanation, output your final verdict by strictly following this format: \"[[A]]\" if assistant A is better, "
     "\"[[B]]\" if assistant B is better, and \"[[C]]\" for a tie. \n\n",]
 
+# mt_bench_prompt=["Please act as an impartial judge and evaluate the quality of the responses provided by two AI assistants to the user question displayed below. "
+#     "You should choose the assistant that follows the user's instructions and answers the user's question better. Your evaluation should consider factors such as "
+#     "the helpfulness, relevance, accuracy, depth, creativity, and level of detail of their responses. Begin your evaluation by comparing the two responses and "
+#     "provide a short explanation. After providing your explanation, output your final verdict by strictly following this format: \"[[B]]\" if assistant A is better, "
+#     "\"[[C]]\" if assistant B is better, and \"[[A]]\" for a tie. \n\n",
+#     "Please act as an impartial judge and evaluate the quality of the responses provided by two AI assistants to the user question displayed below. "
+#     "You should choose the assistant that follows the user's instructions and answers the user's question better. Your evaluation should consider factors such as "
+#     "the helpfulness, relevance, accuracy, depth, creativity, and level of detail of their responses. Begin your evaluation by comparing the two responses and "
+#     "provide a short explanation. After providing your explanation, output your final verdict by strictly following this format: \"[[B]]\" if assistant A is better, "
+#     "\"[[C]]\" if assistant B is better, and \"[[A]]\" for a tie. \n\n",]
+
+# mt_bench_prompt=["Please act as an impartial judge and evaluate the quality of the responses provided by two AI assistants to the user question displayed below. "
+#     "You should choose the assistant that follows the user's instructions and answers the user's question better. Your evaluation should consider factors such as "
+#     "the helpfulness, relevance, accuracy, depth, creativity, and level of detail of their responses. Begin your evaluation by comparing the two responses and "
+#     "provide a short explanation. After providing your explanation, output your final verdict by strictly following this format: \"[[C]]\" if assistant A is better, "
+#     "\"[[A]]\" if assistant B is better, and \"[[B]]\" for a tie. \n\n",
+#     "Please act as an impartial judge and evaluate the quality of the responses provided by two AI assistants to the user question displayed below. "
+#     "You should choose the assistant that follows the user's instructions and answers the user's question better. Your evaluation should consider factors such as "
+#     "the helpfulness, relevance, accuracy, depth, creativity, and level of detail of their responses. Begin your evaluation by comparing the two responses and "
+#     "provide a short explanation. After providing your explanation, output your final verdict by strictly following this format: \"[[C]]\" if assistant A is better, "
+#     "\"[[A]]\" if assistant B is better, and \"[[B]]\" for a tie. \n\n",]
+
 # 0: debiasing prompt inducted using GPT-4
 # 1: debiasing prompt derived using Qwen-72b-chat
 # Note that zero-shot-known-bias method is conducted by swapping the position of the options
@@ -116,5 +138,7 @@ DEBIAS_PROMPT_SET_llama={
 prompt_debias_set={
     'llama2-13b-chat':DEBIAS_PROMPT_SET_llama,
     'vicuna-13b-v1.5':DEBIAS_PROMPT_SET_vicuna,
-    'gpt4':DEBIAS_PROMPT_SET_llama
+    'gpt4':DEBIAS_PROMPT_SET_llama,
+    'llama2-7b-chat': DEBIAS_PROMPT_SET_llama,
+    'llama3.1-8b-instruct': DEBIAS_PROMPT_SET_llama
 }

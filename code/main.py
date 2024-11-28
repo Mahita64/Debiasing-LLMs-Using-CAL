@@ -25,7 +25,7 @@ def create_logger(log_path):
 def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--model', type=str, default='google/flan-t5-large', choices=MODEL_SET)
-    parser.add_argument('--dataset', type=str, default='mnli', choices=["mnli","HANS","bbq",'unqover','mt_bench','chatbot', "mnli_sampled"])
+    parser.add_argument('--dataset', type=str, default='mnli', choices=["mnli","HANS","bbq",'unqover','mt_bench','chatbot', "mnli_sampled", "mt_bench_sampled", "chatbot_sampled"])
     parser.add_argument('--shot', type=int, default=0)
     parser.add_argument('--generate_len', type=int, default=4)
     parser.add_argument('--debias', action='store_true')
@@ -38,7 +38,10 @@ def inference(args, inference_model, RESULTS_DIR):
     # if sample use default class functions
     if args.dataset == "mnli_sampled":
         args.dataset = "mnli"
-        
+    if args.dataset == "mt_bench_sampled":
+        args.dataset = "mt_bench"    
+    if args.dataset == "chatbot_sampled":
+        args.dataset = "chatbot"    
     # zero shot
     if args.shot==0:
         if args.debias:

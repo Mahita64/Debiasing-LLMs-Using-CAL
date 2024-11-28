@@ -332,6 +332,10 @@ class MT_Bench(Dataset):
         self.data=[]
         d={'model_a':0,'model_b':1,'tie':2}
         d_reverse = {'model_a': 1, 'model_b': 0, 'tie': 2}
+        # d={'model_a':1,'model_b':2,'tie':0}
+        # d_reverse = {'model_a': 2, 'model_b': 1, 'tie': 0}
+        # d={'model_a':2,'model_b':0,'tie':1}
+        # d_reverse = {'model_a': 0, 'model_b': 2, 'tie': 1}
         for data in tqdm(datas):
             model_a = data['model_a']
             q = data['q']
@@ -453,9 +457,14 @@ class MNLI(Dataset):
         self.time += 1
 
 def create_dataset(dataset_name, seed=-1, model='llama2-13b-chat'):
+    print(dataset_name)
     if "mnli_sampled" == dataset_name:
         return MNLI('data/mnli_sampled/sampled.jsonl')
-    if "mnli" in dataset_name:
+    elif "mt_bench_sampled" == dataset_name:
+        return MT_Bench('data/mt_bench/sampled.jsonl',seed, model=model)
+    elif "chatbot_sampled" == dataset_name:
+        return MT_Bench('data/chatbot/sampled.jsonl',seed, model=model)
+    elif "mnli" in dataset_name:
         if 'llama' not in model and 'vicuna' not in model:
             return MNLI('data/mnli_sampled/sampled.jsonl')
         else:

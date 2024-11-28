@@ -4,6 +4,7 @@ import json
 import openai
 import torch
 import os
+from collections import defaultdict
 
 def write_jsonl(file,train_datas):
     # write to json file
@@ -223,7 +224,7 @@ class Inference(object):
                     if i==0:
                         # The hidden state of the last token in the last layer
                         representations = softmax(hidden_states[0][-1][0][-1]).cpu().tolist()
-                        example['representations']=representations
+                        # example['representations']=representations
                         for k in range(option_num):
                             total_scores[k][i] = logits[0][0][label_spaces_ids[k][i]]
                     else:
@@ -239,12 +240,21 @@ class Inference(object):
                 pred = torch.argmax(total_scores, dim=-1).item()
                 example['pred'] = pred
                 example['scores'] = total_scores.cpu().tolist()
+            
                 examples.append(example)
                 preds.append(pred)
                 if 'bias_type' in raw_data.keys():
                     preds_type[raw_data['bias_type']].append(pred)
                 scores_l.append(total_scores.cpu().tolist())
 
+        gs_map = defaultdict(int)
+        pred_map = defaultdict(int)
+        for val in examples:
+            gs_map[val['gold']] += 1
+            pred_map[val['pred']] += 1
+            
+        print("COUNTS: ", gs_map, pred_map)
+        
         score = self.eval(preds, gts)
         print(f"Score on {self.args.dataset}: {score:.4f}")
         if len(raw_data)>0:
@@ -252,11 +262,11 @@ class Inference(object):
                 print(key,self.eval(preds_type[key], gts_type[key]))
         
         # write predictions to file
-        if self.args.dataset in ['mnli','chatbot'] and self.args.shot==0 and not self.args.debias:
+        if self.args.dataset in ['mnli','mt_bench'] and self.args.shot==0 and not self.args.debias:
             write_jsonl('data/' + self.args.dataset + '_' + self.args.model + '_examples.jsonl',examples)
 
-        if self.args.dataset in ['chatbot', 'mt_bench']:
-            write_jsonl('data/' + self.args.dataset + '_' + self.args.model + '_pred_origin.jsonl', (preds, gts))
+        if self.args.dataset in ['mnli', 'mt_bench']:
+            write_jsonl('data/' + self.args.dataset + '_' + self.args.model + '_pred_origin_swapped_2.jsonl', (preds, gts))
 
         return score
 
@@ -291,6 +301,10 @@ class Inference(object):
             # use mnli processing for sampled data
             if self.args.dataset == "mnli_sampled":
                 self.args.dataset = "mnli" 
+            if self.args.dataset == "mt_bench_sampled":
+                self.args.dataset = "mt_bench" 
+            if self.args.dataset == "chatbot_sampled":
+                self.args.dataset = "chatbot" 
             few_shot_examples = self.args.data.get_few_shot_examples(self.args.dataset,fs_num=fs_num)
             input_text += few_shot_examples
             input_text += (content + "\nAnswer:\n")
@@ -329,6 +343,10 @@ class Inference(object):
         if self.args.shot > 0:
             if self.args.dataset == "mnli_sampled":
                 self.args.dataset = "mnli" 
+            if self.args.dataset == "mt_bench_sampled":
+                self.args.dataset = "mt_bench"
+            if self.args.dataset == "chatbot_sampled":
+                self.args.dataset = "chatbot" 
             few_shot_examples = self.args.data.get_few_shot_examples(self.args.dataset,fs_num)
             input_text = few_shot_examples+input_text
 
@@ -365,6 +383,10 @@ class Inference(object):
         if self.args.shot > 0:
             if self.args.dataset == "mnli_sampled":
                 self.args.dataset = "mnli" 
+            if self.args.dataset == "mt_bench_sampled":
+                self.args.dataset = "mt_bench" 
+            if self.args.dataset == "chatbot_sampled":
+                self.args.dataset = "chatbot" 
             few_shot_examples = self.args.data.get_few_shot_examples(self.args.dataset,fs_num)
             input_text += few_shot_examples
 
