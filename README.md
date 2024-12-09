@@ -1,15 +1,15 @@
 # ANLP-CAL-Debiasing
 
-As part of the ANLP Assignment 3:
+### Evaluating and improving the performance of Debiasing using Causal-Guided Active Learning for Large Language Models
+### Akshita Gupta, Krishnaprasad Vijayshankar, Mahita Kandala
 
-Reproduction of the paper "Causal-Guided Active Learning for Debiasing Large Language Models" by Sun et. al 
-https://aclanthology.org/2024.acl-long.778.pdf
+(As a part of the 11-711 - Advanced Natural Language Processing Coursework)
+
+The figure below provides an overview of the causal-guided active learning framework.
 
 <p align="center">
   <img width="700" height="400" src="CAL-rep.png">
 </p>
-
-The above figure depicts the overview of the Causal-guided Active Learning framework.
 
 ## Github Structure
 ```
@@ -17,6 +17,8 @@ ANLP-End-to-End-RAG-System/
 ├── code/
 │   ├── biasdetect/
 │   ├── data/
+│   ├── results/
+│   ├── mt_bench_debias.ipynb
 │   ├── config.py
 │   ├── download.py
 │   ├── few_shot_examples.py
