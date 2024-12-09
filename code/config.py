@@ -28,38 +28,44 @@ NLI_PROMPT=[
 BIAS_PROMPT=["{}\n{}\nA. {} B. {} C. {}\n",
     "Context: {}\nQ: {}\nOptions:\nA: {} B: {} C: {}\n"]
 
+'''ENHANCED CAL 2'''
 mt_bench_prompt=["Please act as an impartial judge and evaluate the quality of the responses provided by two AI assistants to the user question displayed below. "
     "You should choose the assistant that follows the user's instructions and answers the user's question better. Your evaluation should consider factors such as "
     "the helpfulness, relevance, accuracy, depth, creativity, and level of detail of their responses. Begin your evaluation by comparing the two responses and "
-    "provide a short explanation. After providing your explanation, output your final verdict by strictly following this format: \"[[A]]\" if assistant A is better, "
-    "\"[[B]]\" if assistant B is better, and \"[[C]]\" for a tie. \n\n",
+    "provide a short explanation. After providing your explanation, choose whether Assistant A had a better answer, Assistant B had a better answer, or both the answers "
+    "were tied. Based on your answer, output your final verdict by strictly following this format: \"[[A]]\" if assistant B is better, "
+    "\"[[B]]\" for a tie, and \"[[C]]\" if assistant A is better. \n\n. Choose tie if both the prompts are equally effective in explaining the answer to a beginner. ⁠",
     "Please act as an impartial judge and evaluate the quality of the responses provided by two AI assistants to the user question displayed below. "
     "You should choose the assistant that follows the user's instructions and answers the user's question better. Your evaluation should consider factors such as "
     "the helpfulness, relevance, accuracy, depth, creativity, and level of detail of their responses. Begin your evaluation by comparing the two responses and "
-    "provide a short explanation. After providing your explanation, output your final verdict by strictly following this format: \"[[A]]\" if assistant A is better, "
-    "\"[[B]]\" if assistant B is better, and \"[[C]]\" for a tie. \n\n",]
+    "provide a short explanation. After providing your explanation, choose whether Assistant A had a better answer, Assistant B had a better answer, or both the answers "
+    "were tied. Based on your answer, output your final verdict by strictly following this format: \"[[A]]\" if assistant B is better, "
+    "\"[[B]]\" for a tie, and \"[[C]]\" if assistant A is better. \n\n. Choose tie if both the prompts are equally effective in explaining the answer to a beginner. ⁠",]
+
+'''ENHANCED CAL 1'''
+# mt_bench_prompt=["Please act as an impartial judge and evaluate the quality of the responses provided by two AI assistants to the user question displayed below. "
+#     "You should choose the assistant that follows the user's instructions and answers the user's question better. Your evaluation should consider factors such as "
+#     "the helpfulness, relevance, accuracy, depth, creativity, and level of detail of their responses. Begin your evaluation by comparing the two responses and "
+#     "provide a short explanation. After providing your explanation, output your final verdict by strictly following this format: \"[[A]]\" if assistant B is better, "
+#     "\"[[B]]\" for a tie, and \"[[C]]\" if assistant A is better. \n\n. Choose tie if both the prompts are equally effective in explaining the answer to a beginner.",
+#     "Please act as an impartial judge and evaluate the quality of the responses provided by two AI assistants to the user question displayed below. "
+#     "You should choose the assistant that follows the user's instructions and answers the user's question better. Your evaluation should consider factors such as "
+#     "the helpfulness, relevance, accuracy, depth, creativity, and level of detail of their responses. Begin your evaluation by comparing the two responses and "
+#     "provide a short explanation. After providing your explanation, output your final verdict by strictly following this format: \"[[A]]\" if assistant B is better, "
+#     "\"[[B]]\" for a tie, and \"[[C]]\" if assistant A is better. \n\n. Choose tie if both the prompts are equally effective in explaining the answer to a beginner.",]
+
 
 # mt_bench_prompt=["Please act as an impartial judge and evaluate the quality of the responses provided by two AI assistants to the user question displayed below. "
 #     "You should choose the assistant that follows the user's instructions and answers the user's question better. Your evaluation should consider factors such as "
 #     "the helpfulness, relevance, accuracy, depth, creativity, and level of detail of their responses. Begin your evaluation by comparing the two responses and "
-#     "provide a short explanation. After providing your explanation, output your final verdict by strictly following this format: \"[[B]]\" if assistant A is better, "
-#     "\"[[C]]\" if assistant B is better, and \"[[A]]\" for a tie. \n\n",
+#     "provide a short explanation. After providing your explanation, output your final verdict by strictly following this format: \"[[A]]\" if assistant B is better, "
+#     "\"[[B]]\" for a tie, and \"[[C]]\" if assistant A is better. \n\n",
 #     "Please act as an impartial judge and evaluate the quality of the responses provided by two AI assistants to the user question displayed below. "
 #     "You should choose the assistant that follows the user's instructions and answers the user's question better. Your evaluation should consider factors such as "
 #     "the helpfulness, relevance, accuracy, depth, creativity, and level of detail of their responses. Begin your evaluation by comparing the two responses and "
-#     "provide a short explanation. After providing your explanation, output your final verdict by strictly following this format: \"[[B]]\" if assistant A is better, "
-#     "\"[[C]]\" if assistant B is better, and \"[[A]]\" for a tie. \n\n",]
+#     "provide a short explanation. After providing your explanation, output your final verdict by strictly following this format: \"[[A]]\" if assistant B is better, "
+#     "\"[[B]]\" for a tie, and \"[[C]]\" if assistant A is better. \n\n",]
 
-# mt_bench_prompt=["Please act as an impartial judge and evaluate the quality of the responses provided by two AI assistants to the user question displayed below. "
-#     "You should choose the assistant that follows the user's instructions and answers the user's question better. Your evaluation should consider factors such as "
-#     "the helpfulness, relevance, accuracy, depth, creativity, and level of detail of their responses. Begin your evaluation by comparing the two responses and "
-#     "provide a short explanation. After providing your explanation, output your final verdict by strictly following this format: \"[[C]]\" if assistant A is better, "
-#     "\"[[A]]\" if assistant B is better, and \"[[B]]\" for a tie. \n\n",
-#     "Please act as an impartial judge and evaluate the quality of the responses provided by two AI assistants to the user question displayed below. "
-#     "You should choose the assistant that follows the user's instructions and answers the user's question better. Your evaluation should consider factors such as "
-#     "the helpfulness, relevance, accuracy, depth, creativity, and level of detail of their responses. Begin your evaluation by comparing the two responses and "
-#     "provide a short explanation. After providing your explanation, output your final verdict by strictly following this format: \"[[C]]\" if assistant A is better, "
-#     "\"[[A]]\" if assistant B is better, and \"[[B]]\" for a tie. \n\n",]
 
 # 0: debiasing prompt inducted using GPT-4
 # 1: debiasing prompt derived using Qwen-72b-chat

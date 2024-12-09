@@ -330,7 +330,7 @@ class MT_Bench(Dataset):
     def __init__(self, data_path,seed,model='llama2-13b-chat'):
         datas=readjsonl(data_path)
         self.data=[]
-        d={'model_a':0,'model_b':1,'tie':2}
+        d={'model_a':1,'model_b':2,'tie':0}
         d_reverse = {'model_a': 1, 'model_b': 0, 'tie': 2}
         # d={'model_a':1,'model_b':2,'tie':0}
         # d_reverse = {'model_a': 2, 'model_b': 1, 'tie': 0}
@@ -389,8 +389,8 @@ class MT_Bench(Dataset):
             num2 = random.randint(0, len(nega_C) - 1)
             self.a = nega_A[num1]
             self.c = nega_C[num2]
-            few_shot_examples = examples_llama2["mt_bench"].format(nega_A[num1] + debias_prompt + '[[A]]\n', debias_prompt,
-                                                            nega_C[num2] + debias_prompt + '[[C]]\n')
+            few_shot_examples = examples_llama2["mt_bench"].format(nega_A[num1] + debias_prompt + '[[C]]\n', debias_prompt,
+                                                            nega_C[num2] + debias_prompt + '[[B]]\n')
             length = tokenizer([few_shot_examples], padding=False, return_length=True)["length"][0]
             self.sampled.append((num1, num2))
             while length > 600 or (num1, num2) in self.selected:
@@ -399,12 +399,12 @@ class MT_Bench(Dataset):
                 self.a = nega_A[num1]
                 self.c = nega_C[num2]
                 self.sampled.append((num1, num2))
-                few_shot_examples = examples_llama2["mt_bench"].format(nega_A[num1] + debias_prompt + '[[A]]\n', debias_prompt,
-                                                                nega_C[num2] + debias_prompt + '[[C]]\n')
+                few_shot_examples = examples_llama2["mt_bench"].format(nega_A[num1] + debias_prompt + '[[C]]\n', debias_prompt,
+                                                                nega_C[num2] + debias_prompt + '[[B]]\n')
                 length = tokenizer([few_shot_examples], padding=False, return_length=True)["length"][0]
             self.selected.append((num1, num2))
-            self.debias_few_shot_examples = examples_llama2["mt_bench"].format(nega_A[num1] + debias_prompt + '[[A]]\n', debias_prompt,
-                                                                        nega_C[num2] + debias_prompt + '[[C]]\n')
+            self.debias_few_shot_examples = examples_llama2["mt_bench"].format(nega_A[num1] + debias_prompt + '[[C]]\n', debias_prompt,
+                                                                        nega_C[num2] + debias_prompt + '[[B]]\n')
         self.time+=1
 
     def get_few_shot_examples(self, task, fs_num=None):
@@ -483,7 +483,7 @@ def create_dataset(dataset_name, seed=-1, model='llama2-13b-chat'):
         if 'llama' not in model and 'vicuna' not in model:
             return MT_Bench('data/'+dataset_name+'/sampled.jsonl',seed)
         else:
-            return MT_Bench('data/' + dataset_name + '/data.jsonl', seed, model=model)
+            return MT_Bench('data/' + dataset_name + '/sampled_counterfactual.jsonl', seed, model=model)
     else:
         raise NotImplementedError
 

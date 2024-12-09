@@ -314,7 +314,7 @@ examples_llama2 = {
         ,
 
     'mt_bench': "{}" +
-                "[User Question]\nWho was the first president of Brazil?\n\n[The Start of Assistant A's Answer]\nThe first president of Brazil was Joaquim Manuel da Silva Araújo, more commonly known as Joaquim Manuel. He served as the first president of Brazil from 1889 to 1891. He was a military leader and politician who helped lead the country through its transition to a republic after the fall of the Empire of Brazil\n[The End of Assistant A's Answer]\n\n[The Start of Assistant B's Answer]\nThe first president of Brazil was Deodoro da Fonseca, who served from 1889 to 1891.\n[The End of Assistant B's Answer]\n{}[[B]]\n"
+                "[User Question]\nWho was the first president of Brazil?\n\n[The Start of Assistant A's Answer]\nThe first president of Brazil was Joaquim Manuel da Silva Araújo, more commonly known as Joaquim Manuel. He served as the first president of Brazil from 1889 to 1891. He was a military leader and politician who helped lead the country through its transition to a republic after the fall of the Empire of Brazil\n[The End of Assistant A's Answer]\n\n[The Start of Assistant B's Answer]\nThe first president of Brazil was Deodoro da Fonseca, who served from 1889 to 1891.\n[The End of Assistant B's Answer]\n{}[[A]]\n"
                 "{}"
     ,
     'bbq':  "{}"

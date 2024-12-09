@@ -265,8 +265,8 @@ class Inference(object):
         if self.args.dataset in ['mnli','mt_bench'] and self.args.shot==0 and not self.args.debias:
             write_jsonl('data/' + self.args.dataset + '_' + self.args.model + '_examples.jsonl',examples)
 
-        if self.args.dataset in ['mnli', 'mt_bench']:
-            write_jsonl('data/' + self.args.dataset + '_' + self.args.model + '_pred_origin_swapped_2.jsonl', (preds, gts))
+        if self.args.dataset in ['mnli', 'mt_bench', 'chatbot']:
+            write_jsonl('data/' + self.args.dataset + '_' + self.args.model + '_zs_cal_cab.jsonl', (preds, gts))
 
         return score
 
