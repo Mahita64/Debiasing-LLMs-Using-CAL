@@ -1,4 +1,4 @@
-# ANLP-CAL-Debiasing
+# CAL-Debiasing
 
 ### Evaluating and improving the performance of Debiasing using Causal-Guided Active Learning for Large Language Models
 ### Akshita Gupta, Krishnaprasad Vijayshankar, Mahita Kandala
@@ -13,7 +13,7 @@ The figure below provides an overview of the causal-guided active learning frame
 
 ## Github Structure
 ```
-ANLP-End-to-End-RAG-System/
+Debiasing-LLMs-Using-CAL/
 ├── code/
 │   ├── biasdetect/
 │   ├── data/
