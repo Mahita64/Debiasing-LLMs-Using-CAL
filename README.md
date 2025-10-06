@@ -27,8 +27,6 @@ Debiasing-LLMs-Using-CAL/
 │   └── requirements.txt
 ├── README.md
 ├── github.txt
-├── report.pdf
-├── contributions.md
 └── CAL-rep.png
 ```
 
