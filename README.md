@@ -3,8 +3,6 @@
 ### Evaluating and improving the performance of Debiasing using Causal-Guided Active Learning for Large Language Models
 ### Akshita Gupta, Krishnaprasad Vijayshankar, Mahita Kandala
 
-(As a part of the 11-711 - Advanced Natural Language Processing Coursework)
-
 The figure below provides an overview of the causal-guided active learning framework.
 
 <p align="center">
